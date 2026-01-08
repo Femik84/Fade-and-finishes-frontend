@@ -172,7 +172,7 @@ const AboutSection: React.FC<{ onNavigate: NavHandler }> = ({ onNavigate }) => {
               <img
                 src="/about.jfif"
                 alt="Barbershop Interior"
-                className="relative rounded-lg shadow-2xl w-full h-[500px] object-cover"
+                className="relative rounded-lg shadow-2xl w-full h-125 object-cover"
               />
             </div>
           </motion.div>
@@ -246,7 +246,7 @@ const ServicesSection: React.FC<{ onNavigate: NavHandler; services: ServiceDispl
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                className="group relative overflow-hidden rounded-lg shadow-2xl cursor-pointer aspect-[4/3]"
+                className="group relative overflow-hidden rounded-lg shadow-2xl cursor-pointer aspect-4/3"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
@@ -254,7 +254,7 @@ const ServicesSection: React.FC<{ onNavigate: NavHandler; services: ServiceDispl
                   aria-hidden
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30 group-hover:from-black/90 group-hover:via-black/80 transition-all duration-500" />
+                <div className="absolute inset-0 bg-linear-to-t from-black via-black/70 to-black/30 group-hover:from-black/90 group-hover:via-black/80 transition-all duration-500" />
 
                 <div className="absolute inset-0 flex flex-col justify-end p-8 z-10">
                   <h3
@@ -325,13 +325,13 @@ const BarberShowcase: React.FC<{ onNavigate: NavHandler; barbers: BarberDisplay[
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative overflow-hidden rounded-lg cursor-pointer"
               >
-                <div className="relative h-[350px] overflow-hidden rounded-lg">
+                <div className="relative h-87.5 overflow-hidden rounded-lg">
                   <img
                     src={barber.img}
                     alt={barber.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/60 to-transparent" />
 
                   <motion.div
                     className="absolute top-0 left-0 w-full h-1"
@@ -406,7 +406,7 @@ const GallerySection: React.FC = () => {
           {gallery.map((img, i) => (
             <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} animate={isInView ? { opacity: 1, scale: 1 } : {}} transition={{ duration: 0.5, delay: i * 0.1 }} whileHover={{ scale: 1.05 }} className="relative overflow-hidden rounded-lg aspect-square cursor-pointer group">
               <img src={img} alt={`Gallery ${i + 1}`} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <motion.div initial={{ opacity: 0, scale: 0 }} whileHover={{ opacity: 1, scale: 1 }} transition={{ duration: 0.3 }} className="absolute inset-0 flex items-center justify-center">
                 <div

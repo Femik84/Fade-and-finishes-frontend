@@ -92,7 +92,7 @@ const LightboxModal: React.FC<LightboxModalProps> = ({ image, onClose, onNext, o
         <ChevronRight size={28} />
       </button>
 
-      <div className="w-full max-w-[92vw] md:max-w-3xl lg:max-w-[900px]">
+      <div className="w-full max-w-[92vw] md:max-w-3xl lg:max-w-225">
         <div className="flex items-center justify-center">
           <img
             src={image.src}
@@ -109,11 +109,10 @@ const LightboxModal: React.FC<LightboxModalProps> = ({ image, onClose, onNext, o
               </span>
               <span style={{ color: goldColors.primary, fontWeight: 600 }}>{image.price}</span>
             </div>
-            
+
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                // Add your booking navigation logic here
                 window.location.href = '/booking';
               }}
               className="group relative px-6 py-3 bg-[#D4AF37] text-black font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#D4AF37]/50"
@@ -121,19 +120,19 @@ const LightboxModal: React.FC<LightboxModalProps> = ({ image, onClose, onNext, o
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Book Now
-                <svg 
-                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" 
-                  fill="none" 
-                  stroke="currentColor" 
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1"
+                  fill="none"
+                  stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] to-[#F4C542] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute inset-0 bg-linear-to-r from-[#D4AF37] to-[#F4C542] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </button>
           </div>
-         
+
           <p className="text-gray-400">Styled by {image.artist}</p>
         </div>
       </div>
@@ -250,7 +249,7 @@ const SquareGrid: React.FC<SquareGridProps> = ({ images, onImageClick }) => {
               {img.category}
             </span>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+          <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
             <div className="text-white">
               <p className="text-sm font-semibold">{img.artist}</p>
               <p className="text-xs text-[#D4AF37]">{img.price}</p>
@@ -337,7 +336,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ title, images, onImag
           {images.map((img, idx) => (
             <div
               key={img.id}
-              className="flex-shrink-0 w-72 h-96 group cursor-pointer relative overflow-hidden rounded-lg"
+              className="shrink-0 w-72 h-96 group cursor-pointer relative overflow-hidden rounded-lg"
               onClick={() => onImageClick(img)}
             >
               <img
@@ -354,7 +353,7 @@ const GalleryCarousel: React.FC<GalleryCarouselProps> = ({ title, images, onImag
                   {idx + 1}/{images.length}
                 </span>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+              <div className="absolute inset-0 bg-linear-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                 <p className="text-white text-sm font-semibold mb-1">{img.description}</p>
                 <p className="text-gray-300 text-xs">{img.artist}</p>
                 <p className="text-[#D4AF37] text-sm font-bold mt-1">{img.price}</p>
@@ -412,7 +411,6 @@ export default function GalleryPage() {
         const data = await apiGet<GalleryItem[]>('galleries/');
         if (!mounted) return;
 
-        // update state and cache
         setGalleryData(data || []);
         try {
           setCache(GALLERY_CACHE_KEY, data || [], GALLERY_CACHE_TTL);
@@ -435,7 +433,8 @@ export default function GalleryPage() {
       }
     };
 
-    const hadCache = loadFromCache();
+    // attempt to load cache (don't assign to an unused variable)
+    loadFromCache();
     // Always attempt a network fetch to refresh cache in background.
     // If there was no cache, user sees loader until fetch completes.
     fetchAndCache();
@@ -532,34 +531,34 @@ export default function GalleryPage() {
             alt="Luxury Gallery"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 to-transparent" />
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 40 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ duration: 1, delay: 0.3 }} 
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
           className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4"
         >
-          <motion.div 
-            initial={{ scale: 0.9, opacity: 0 }} 
-            animate={{ scale: 1, opacity: 1 }} 
-            transition={{ duration: 0.8, delay: 0.5 }} 
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
             className="mb-4"
           >
             <div className="w-20 h-1 bg-[#d4af37] mx-auto mb-6" />
           </motion.div>
 
-          <h1 
-            className="text-6xl md:text-7xl font-bold mb-6 tracking-tight text-white" 
+          <h1
+            className="text-6xl md:text-7xl font-bold mb-6 tracking-tight text-white"
             style={{ fontFamily: "Playfair Display, serif" }}
           >
             Our <span style={{ color: goldColors.primary }}>Gallery</span>
           </h1>
 
-          <p 
-            className="text-xl md:text-2xl max-w-2xl font-light text-gray-300" 
+          <p
+            className="text-xl md:text-2xl max-w-2xl font-light text-gray-300"
             style={{ fontFamily: "Cormorant Garamond, serif" }}
           >
             Experience the pinnacle of luxury grooming where artistry meets excellence
@@ -584,8 +583,8 @@ export default function GalleryPage() {
             {/* Featured Works - Masonry */}
             <section className="mb-24">
               <div className="text-center mb-16">
-                <h2 
-                  className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`} 
+                <h2
+                  className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}
                   style={{ fontFamily: 'Playfair Display, serif' }}
                 >
                   Featured Works
@@ -598,8 +597,8 @@ export default function GalleryPage() {
             {/* Portfolio Grid - Shows all randomly when "All" is selected */}
             <section className="mb-24">
               <div className="text-center mb-16">
-                <h2 
-                  className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`} 
+                <h2
+                  className={`text-4xl md:text-5xl font-bold mb-4 ${isDark ? 'text-white' : 'text-black'}`}
                   style={{ fontFamily: 'Playfair Display, serif' }}
                 >
                   Portfolio Grid
@@ -609,7 +608,7 @@ export default function GalleryPage() {
               <SquareGrid images={filteredImages} onImageClick={handleImageClick} />
             </section>
 
-           {/* Browse by Category: use original grouped logic but show salon-style carousels */}
+            {/* Browse by Category: use original grouped logic but show salon-style carousels */}
             <section>
               <h2 className="text-3xl font-bold mb-12 text-center">
                 Browse by <span className="text-[#D4AF37]">Category</span>
@@ -634,11 +633,11 @@ export default function GalleryPage() {
       </div>
 
       {/* Lightbox modal */}
-      <LightboxModal 
-        image={selectedImage} 
-        onClose={() => setSelectedImage(null)} 
-        onNext={handleNext} 
-        onPrev={handlePrev} 
+      <LightboxModal
+        image={selectedImage}
+        onClose={() => setSelectedImage(null)}
+        onNext={handleNext}
+        onPrev={handlePrev}
       />
 
       <Footer />

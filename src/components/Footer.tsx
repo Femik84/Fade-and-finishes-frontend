@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { footerInfo } from '../Data/data';
-import { ThemeContext } from '../Context/ThemeContext';
 
 // Gold color palette - matching Home component
 const goldColors = {
@@ -16,7 +15,6 @@ const goldColors = {
 };
 
 const Footer: React.FC = () => {
-  const { isDark } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');

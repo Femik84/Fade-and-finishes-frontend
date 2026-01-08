@@ -75,9 +75,9 @@ const ContactPage: React.FC = () => {
             alt="Contact hero"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/12 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent opacity-60 mix-blend-screen pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 via-[#d4af37]/12 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/10 to-transparent opacity-60 mix-blend-screen pointer-events-none" />
         </div>
 
         <motion.div
@@ -131,7 +131,7 @@ const ContactPage: React.FC = () => {
 
               <div className="space-y-6">
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
-                  <MapPin className="w-6 h-6 mt-1 flex-shrink-0 text-[#D4AF37]" />
+                  <MapPin className="w-6 h-6 mt-1 shrink-0 text-[#D4AF37]" />
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
                     <p className={isDark ? 'text-gray-300' : 'text-gray-700'}>
@@ -142,7 +142,7 @@ const ContactPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
-                  <Phone className="w-6 h-6 mt-1 flex-shrink-0 text-[#D4AF37]" />
+                  <Phone className="w-6 h-6 mt-1 shrink-0 text-[#D4AF37]" />
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
                     <a href="tel:+15551234567" className={`${isDark ? 'text-gray-300 hover:text-[#D4AF37]' : 'text-gray-700 hover:text-[#D4AF37]'} transition-colors`}>
@@ -152,7 +152,7 @@ const ContactPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
-                  <MessageCircle className="w-6 h-6 mt-1 flex-shrink-0 text-[#D4AF37]" />
+                  <MessageCircle className="w-6 h-6 mt-1 shrink-0 text-[#D4AF37]" />
                   <div>
                     <h3 className="font-semibold mb-1">WhatsApp</h3>
                     <a
@@ -167,7 +167,7 @@ const ContactPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
-                  <Mail className="w-6 h-6 mt-1 flex-shrink-0 text-[#D4AF37]" />
+                  <Mail className="w-6 h-6 mt-1 shrink-0 text-[#D4AF37]" />
                   <div>
                     <h3 className="font-semibold mb-1">Email</h3>
                     <a href="mailto:hello@fadeandfinishes.com" className={`${isDark ? 'text-gray-300 hover:text-[#D4AF37]' : 'text-gray-700 hover:text-[#D4AF37]'} transition-colors`}>
@@ -177,7 +177,7 @@ const ContactPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div className="flex items-start gap-4" whileHover={{ x: 5 }}>
-                  <Clock className="w-6 h-6 mt-1 flex-shrink-0 text-[#D4AF37]" />
+                  <Clock className="w-6 h-6 mt-1 shrink-0 text-[#D4AF37]" />
                   <div>
                     <h3 className="font-semibold mb-2">Opening Hours</h3>
                     <div className={`space-y-1 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
@@ -227,7 +227,7 @@ const ContactPage: React.FC = () => {
                 <h3 className="text-xl font-bold text-[#D4AF37]">Our Location</h3>
               </div>
 
-              <div className="w-full h-[530px] rounded-xl overflow-hidden shadow-inner">
+              <div className="w-full h-132.5 rounded-xl overflow-hidden shadow-inner">
                 <iframe
                   src={locationEmbedUrl}
                   width="100%"

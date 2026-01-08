@@ -211,8 +211,8 @@ const About: React.FC = () => {
             alt="Luxury Barbershop Hero"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 to-transparent" />
         </div>
 
         <motion.div
@@ -307,7 +307,7 @@ const About: React.FC = () => {
                 <img
                   src={aboutImage}
                   alt="Barbershop Interior"
-                  className="relative rounded-lg shadow-2xl w-full h-[500px] object-cover"
+                  className="relative rounded-lg shadow-2xl w-full h-125 object-cover"
                 />
               </div>
             </motion.div>
@@ -461,7 +461,7 @@ const About: React.FC = () => {
                   className={`flex items-start space-x-4 p-6 rounded-xl ${isDark ? 'bg-black hover:bg-zinc-800' : 'bg-white hover:bg-amber-50/50'} transition-colors duration-300`}
                 >
                   <div
-                    className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
+                    className="w-2 h-2 rounded-full mt-2 shrink-0"
                     style={{ backgroundColor: goldColors.primary }}
                   />
                   <div>
@@ -541,7 +541,7 @@ const About: React.FC = () => {
           {/* Certifications & Training */}
           <div className="mt-20 max-w-4xl mx-auto">
             <div
-              className={`${isDark ? 'bg-gradient-to-br from-amber-900/20 to-amber-800/10' : 'bg-gradient-to-br from-amber-50 to-amber-100/50'} rounded-3xl p-10 md:p-14 text-center`}
+              className={`${isDark ? 'bg-linear-to-br from-amber-900/20 to-amber-800/10' : 'bg-linear-to-br from-amber-50 to-amber-100/50'} rounded-3xl p-10 md:p-14 text-center`}
             >
               <h3
                 className={`text-3xl font-bold mb-6 ${isDark ? 'text-white' : 'text-neutral-900'}`}

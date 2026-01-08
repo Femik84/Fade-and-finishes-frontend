@@ -209,7 +209,8 @@ const Services: React.FC = () => {
       }
     };
 
-    const hadCache = loadFromCache();
+    // attempt to load cache (don't assign to an unused variable)
+    loadFromCache();
 
     // If cache existed we already set UI and still attempt a background refresh to update stale data.
     // If no cache, fetch (and show loader until it completes).
@@ -344,8 +345,8 @@ const Services: React.FC = () => {
             alt="Luxury Salon"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 to-transparent" />
         </div>
 
         <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="relative z-10 h-full flex flex-col justify-center items-center text-center px-4">
@@ -402,7 +403,7 @@ const Services: React.FC = () => {
                   variants={cardVariants}
                   whileHover={{ y: -8, scale: 1.02 }}
                   className={`group relative rounded-lg overflow-hidden border transition-all duration-500 cursor-pointer ${
-                    isDark ? "bg-gradient-to-br from-zinc-900 to-black border-zinc-800 hover:border-[#d4af37]" : "bg-gradient-to-br from-gray-50 to-white border-gray-200 hover:border-[#d4af37] shadow-lg"
+                    isDark ? "bg-linear-to-br from-zinc-900 to-black border-zinc-800 hover:border-[#d4af37]" : "bg-linear-to-br from-gray-50 to-white border-gray-200 hover:border-[#d4af37] shadow-lg"
                   }`}
                   role="button"
                   tabIndex={0}
@@ -413,7 +414,7 @@ const Services: React.FC = () => {
                   {/* Service Image */}
                   <div className="relative h-64 overflow-hidden">
                     <img src={service.image} alt={service.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
                     {/* Gold accent overlay on hover */}
                     <div className="absolute inset-0 bg-[#d4af37]/0 group-hover:bg-[#d4af37]/10 transition-all duration-500" />
@@ -470,7 +471,7 @@ const Services: React.FC = () => {
 
                   {/* Premium glow effect */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/5 via-transparent to-[#d4af37]/5" />
+                    <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/5 via-transparent to-[#d4af37]/5" />
                   </div>
                 </motion.div>
               ))}
@@ -481,7 +482,7 @@ const Services: React.FC = () => {
 
       {/* Bottom CTA Section */}
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/10 to-transparent" />
         <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
           <h2 className={`text-4xl md:text-5xl font-bold mb-6 ${isDark ? "text-white" : "text-black"}`} style={{ fontFamily: "Playfair Display, serif" }}>
             Ready to Experience Luxury?

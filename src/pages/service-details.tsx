@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Star, Clock, Award, ArrowLeft, Plus, Check } from "lucide-react";
+import { Star, Clock, Award, ArrowLeft,  Check } from "lucide-react";
 import { ThemeContext } from "../Context/ThemeContext";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -378,8 +378,8 @@ const ServiceDetails = () => {
             backgroundPosition: "center",
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 to-transparent" />
         </div>
 
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.3 }} className="relative z-10 h-full flex flex-col justify-center items-center text-center px-6">
@@ -413,7 +413,7 @@ const ServiceDetails = () => {
       </section>
 
       {/* Overview Section */}
-      <section ref={overviewRef} className={`py-20 px-6 ${isDark ? "bg-gradient-to-b from-black to-zinc-900" : "bg-gradient-to-b from-white to-gray-100"}`}>
+      <section ref={overviewRef} className={`py-20 px-6 ${isDark ? "bg-linear-to-b from-black to-zinc-900" : "bg-linear-to-b from-white to-gray-100"}`}>
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -463,8 +463,8 @@ const ServiceDetails = () => {
             </div>
 
             <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-[#d4af37]/20 to-transparent blur-xl" />
-              <img src={currentService.gallery[0] || heroSrc} alt={currentService.name} className="relative rounded-lg shadow-2xl w-full h-[500px] object-cover" />
+              <div className="absolute -inset-4 bg-linear-to-r from-[#d4af37]/20 to-transparent blur-xl" />
+              <img src={currentService.gallery[0] || heroSrc} alt={currentService.name} className="relative rounded-lg shadow-2xl w-full h-125 object-cover" />
             </div>
           </div>
         </div>
@@ -489,7 +489,7 @@ const ServiceDetails = () => {
                 <ul className="space-y-3">
                   {currentService.detailedDescription.includes.map((item: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
-                      <Check className="text-[#d4af37] mt-1 flex-shrink-0" size={20} />
+                      <Check className="text-[#d4af37] mt-1 shrink-0" size={20} />
                       <span className={isDark ? "text-gray-300" : "text-gray-700"}>{item}</span>
                     </li>
                   ))}
@@ -503,7 +503,7 @@ const ServiceDetails = () => {
                 <ol className="space-y-3">
                   {/* Use short description in "Your Journey" per request */}
                   <li className="flex items-start gap-3">
-                    <span className="text-[#d4af37] font-bold mt-1 flex-shrink-0">•</span>
+                    <span className="text-[#d4af37] font-bold mt-1 shrink-0">•</span>
                     <span className={isDark ? "text-gray-300" : "text-gray-700"}>{currentService.shortDescription}</span>
                   </li>
                 </ol>
@@ -518,7 +518,7 @@ const ServiceDetails = () => {
                 <ul className="space-y-3">
                   {currentService.detailedDescription.benefits.map((benefit: string, index: number) => (
                     <li key={index} className="flex items-start gap-3">
-                      <Star className="text-[#d4af37] mt-1 flex-shrink-0" size={20} />
+                      <Star className="text-[#d4af37] mt-1 shrink-0" size={20} />
                       <span className={isDark ? "text-gray-300" : "text-gray-700"}>{benefit}</span>
                     </li>
                   ))}
@@ -569,7 +569,7 @@ const ServiceDetails = () => {
 
                       <button
                         onClick={() => navigate("/booking")}
-                        className="px-4 py-2 rounded-full bg-gradient-to-r from-[#d4af37] to-[#f0c847] text-black font-semibold hover:opacity-95 transition-all shadow-lg"
+                        className="px-4 py-2 rounded-full bg-linear-to-r from-[#d4af37] to-[#f0c847] text-black font-semibold hover:opacity-95 transition-all shadow-lg"
                       >
                         Book Now
                       </button>
@@ -608,7 +608,7 @@ const ServiceDetails = () => {
                 }}
               >
                 <img src={image} alt={`Gallery ${index + 1}`} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
@@ -652,7 +652,7 @@ const ServiceDetails = () => {
       </section>
 
       {/* CTA Section */}
-      <section className={`relative py-32 px-6 overflow-hidden ${isDark ? "bg-gradient-to-r from-black via-zinc-900 to-black" : "bg-gradient-to-r from-gray-100 via-white to-gray-100"}`}>
+      <section className={`relative py-32 px-6 overflow-hidden ${isDark ? "bg-linear-to-r from-black via-zinc-900 to-black" : "bg-linear-to-r from-gray-100 via-white to-gray-100"}`}>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNkNGFmMzciIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDEzNGgxMnYxMkgzNnptMjQgMGgxMnYxMkg2MHptMCAyNGgxMnYxMkg2MHptMCAyNGgxMnYxMkg2MHptMC0xMmgxMnYxMkg2MHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-20" />
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-6xl font-bold mb-6" style={{ fontFamily: "Playfair Display, serif" }}>

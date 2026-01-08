@@ -272,9 +272,9 @@ const BookingPage: React.FC = () => {
             alt="Booking hero"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/20 via-[#d4af37]/12 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 to-transparent opacity-60 mix-blend-screen pointer-events-none" />
+          <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/20 via-[#d4af37]/12 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#d4af37]/10 to-transparent opacity-60 mix-blend-screen pointer-events-none" />
         </div>
 
         <motion.div
@@ -342,7 +342,7 @@ const BookingPage: React.FC = () => {
                     className="mb-6 p-4 bg-green-500/10 border border-green-500 rounded-lg text-green-300 flex items-start gap-3"
                     role="alert"
                   >
-                    <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold">Booking request sent successfully!</p>
                       <p className="text-sm mt-1">Check your email for confirmation. We'll contact you shortly to confirm your appointment.</p>
@@ -459,7 +459,7 @@ const BookingPage: React.FC = () => {
                                 </div>
                               </div>
                               {formData.service === service.id && (
-                                <Check className="w-5 h-5 text-[#D4AF37] flex-shrink-0" />
+                                <Check className="w-5 h-5 text-[#D4AF37] shrink-0" />
                               )}
                             </div>
                           </motion.button>
@@ -523,7 +523,7 @@ const BookingPage: React.FC = () => {
                                 </div>
                               </div>
                               {formData.barber === barber.id && (
-                                <Check className="w-5 h-5 text-[#D4AF37] flex-shrink-0 mt-0.5" />
+                                <Check className="w-5 h-5 text-[#D4AF37] shrink-0 mt-0.5" />
                               )}
                             </div>
                           </motion.button>
@@ -622,7 +622,7 @@ const BookingPage: React.FC = () => {
                 disabled={loading || dataLoading || !!dataError}
                 whileHover={!loading ? { scale: 1.02, boxShadow: "0 0 30px rgba(212,175,55,0.5)" } : {}}
                 whileTap={!loading ? { scale: 0.98 } : {}}
-                className="w-full bg-gradient-to-r from-[#D4AF37] to-yellow-500 text-black font-bold py-4 rounded-xl shadow-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-linear-to-r from-[#D4AF37] to-yellow-500 text-black font-bold py-4 rounded-xl shadow-lg hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                 aria-label="Submit booking request"
               >
                 {loading ? 'Sending Request...' : 'Request Booking'}
@@ -641,13 +641,13 @@ const BookingPage: React.FC = () => {
             transition={{ duration: 0.7 }}
             className="order-last lg:order-first"
           >
-            <div className={`backdrop-blur-xl ${isDark ? 'bg-black/40' : 'bg-white/30'} border-2 border-[#D4AF37]/25 rounded-2xl p-4 h-[755px] shadow-[0_0_40px_rgba(212,175,55,0.12)]`}>
+            <div className={`backdrop-blur-xl ${isDark ? 'bg-black/40' : 'bg-white/30'} border-2 border-[#D4AF37]/25 rounded-2xl p-4 h-188.75 shadow-[0_0_40px_rgba(212,175,55,0.12)]`}>
               <div className="flex items-center gap-2 mb-4">
                 <MapPin className="w-5 h-5 text-[#D4AF37]" />
                 <h3 className="text-xl font-bold text-[#D4AF37]">Our Location</h3>
               </div>
 
-              <div className="w-full h-[600px] rounded-xl overflow-hidden shadow-inner">
+              <div className="w-full h-150 rounded-xl overflow-hidden shadow-inner">
                 <iframe
                   src={locationEmbedUrl}
                   width="100%"
