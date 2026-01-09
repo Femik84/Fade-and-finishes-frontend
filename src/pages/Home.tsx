@@ -141,7 +141,7 @@ const HeroSection: React.FC<{ onNavigate: NavHandler }> = ({ onNavigate }) => {
         </motion.div>
       </div>
 
-      <motion.div className="absolute bottom-17 md:bottom-10 left-1/2 -translate-x-1/2" animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+      <motion.div className="absolute bottom-20 md:bottom-10 left-1/2 -translate-x-1/2" animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
         <div className="w-6 h-10 border-2 rounded-full flex justify-center" style={{ borderColor: goldColors.primary }}>
           <div className="w-1 h-2 rounded-full mt-2" style={{ backgroundColor: goldColors.primary }} />
         </div>
