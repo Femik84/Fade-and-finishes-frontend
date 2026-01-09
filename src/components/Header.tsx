@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Sun, Moon, Facebook, Instagram, Twitter } from 'lucide-react';
-import { ThemeContext } from '../Context/ThemeContext';
-import logo from '../assets/F&F.png';
+import React, { useContext, useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Sun, Moon, Facebook, Instagram, Twitter } from "lucide-react";
+import { ThemeContext } from "../Context/ThemeContext";
+import logo from "../assets/F&F.png";
 
 const Header: React.FC = () => {
   const { isDark, toggleTheme } = useContext(ThemeContext);
@@ -14,34 +14,37 @@ const Header: React.FC = () => {
 
   // Gold color definitions
   const goldColors = {
-    primary: '#D4AF37', // Classic gold
-    light: '#F4E4B8', // Light gold
-    dark: '#B8941F', // Dark gold
-    hover: '#E5C158', // Hover gold
+    primary: "#D4AF37", // Classic gold
+    light: "#F4E4B8", // Light gold
+    dark: "#B8941F", // Dark gold
+    hover: "#E5C158", // Hover gold
   };
 
   // Page checks
   const isServiceDetailsPage =
-    location.pathname === '/service' ||
-    location.pathname === '/service-details' ||
-    location.pathname.startsWith('/services/');
+    location.pathname === "/service" ||
+    location.pathname === "/service-details" ||
+    location.pathname.startsWith("/services/");
 
   const isGalleryPage =
-    location.pathname === '/gallery' || location.pathname.startsWith('/gallery/');
+    location.pathname === "/gallery" ||
+    location.pathname.startsWith("/gallery/");
 
   const isBookingPage =
-    location.pathname === '/booking' || location.pathname.startsWith('/booking/');
+    location.pathname === "/booking" ||
+    location.pathname.startsWith("/booking/");
 
   const isContactPage =
-    location.pathname === '/contact' || location.pathname.startsWith('/contact/');
+    location.pathname === "/contact" ||
+    location.pathname.startsWith("/contact/");
 
   // === IMPORTANT CHANGE ===
   // Include '/about' in the "light header" pages so About page shows light header text
   // in light mode until the user scrolls (then it switches to dark text).
   const isLightHeaderPage =
-    location.pathname === '/' ||
-    location.pathname === '/services' ||
-    location.pathname === '/about' || // <-- About page included here
+    location.pathname === "/" ||
+    location.pathname === "/services" ||
+    location.pathname === "/about" || // <-- About page included here
     isServiceDetailsPage ||
     isGalleryPage ||
     isBookingPage ||
@@ -53,8 +56,8 @@ const Header: React.FC = () => {
     };
 
     handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close mobile menu when route changes
@@ -64,12 +67,12 @@ const Header: React.FC = () => {
   }, [location.pathname]);
 
   const navItems = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Gallery', path: '/gallery' },
-    { name: 'Booking', path: '/booking' },
-    { name: 'Contact', path: '/contact' },
+    { name: "Home", path: "/" },
+    { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Booking", path: "/booking" },
+    { name: "Contact", path: "/contact" },
   ];
 
   const handleNavClick = (path: string) => {
@@ -85,11 +88,11 @@ const Header: React.FC = () => {
   // In light mode and on pages listed in isLightHeaderPage (now includes /about),
   // show light (white) text while not scrolled, then switch to dark on scroll.
   const getTextColor = () => {
-    if (isDark) return 'text-white';
+    if (isDark) return "text-white";
     if (isLightHeaderPage) {
-      return scrolled ? 'text-black' : 'text-white';
+      return scrolled ? "text-black" : "text-white";
     }
-    return 'text-black';
+    return "text-black";
   };
 
   // Navigation item text color (desktop)
@@ -97,24 +100,28 @@ const Header: React.FC = () => {
     const active = isActive(path);
 
     if (isDark) {
-      return active ? 'text-gray-300 hover:opacity-90' : 'text-gray-300 hover:opacity-75';
+      return active
+        ? "text-gray-300 hover:opacity-90"
+        : "text-gray-300 hover:opacity-75";
     }
 
     if (isLightHeaderPage) {
-      if (active) return ''; // active item will be colored via inline style (gold)
-      return scrolled ? 'text-gray-700 hover:opacity-75' : 'text-gray-100 hover:opacity-75';
+      if (active) return ""; // active item will be colored via inline style (gold)
+      return scrolled
+        ? "text-gray-700 hover:opacity-75"
+        : "text-gray-100 hover:opacity-75";
     }
 
-    return active ? '' : 'text-gray-700 hover:opacity-75';
+    return active ? "" : "text-gray-700 hover:opacity-75";
   };
 
   // Hamburger lines color for mobile button
   const getHamburgerColor = () => {
-    if (isDark) return 'bg-white';
+    if (isDark) return "bg-white";
     if (isLightHeaderPage) {
-      return scrolled ? 'bg-black' : 'bg-white';
+      return scrolled ? "bg-black" : "bg-white";
     }
-    return 'bg-black';
+    return "bg-black";
   };
 
   return (
@@ -126,13 +133,14 @@ const Header: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? isDark
-              ? 'bg-black/95 backdrop-blur-md shadow-2xl'
-              : 'bg-white/95 backdrop-blur-md shadow-lg'
-            : 'bg-transparent'
+              ? "bg-black/95 backdrop-blur-md shadow-2xl"
+              : "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-transparent"
         }`}
       >
+     
         <nav className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-18 md:h-20">
             {/* Logo */}
             <Link to="/">
               <motion.div
@@ -140,17 +148,24 @@ const Header: React.FC = () => {
                 className="flex items-center gap-3 cursor-pointer relative right-5"
               >
                 <div className="w-14 h-14">
-                  <img src={logo} alt="Fade & Finishes Logo" className="w-full h-full object-contain" />
+                  <img
+                    src={logo}
+                    alt="Fade & Finishes Logo"
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div className="relative right-4">
                   <h1
-                    className={`text-2xl font-bold transition-colors duration-300 ${getTextColor()}`}
-                    style={{ fontFamily: 'Playfair Display, serif' }}
+                    className={`text-xl md:text-2xl font-bold transition-colors duration-300 ${getTextColor()}`}
+                    style={{ fontFamily: "Playfair Display, serif" }}
                   >
                     <span className="hidden lg:inline">Fade & Finishes</span>
                     <span className="lg:hidden">FADES</span>
                   </h1>
-                  <p className="text-xs tracking-widest" style={{ color: goldColors.primary }}>
+                  <p
+                    className="text-[0.68rem] md:text-xs tracking-widest"
+                    style={{ color: goldColors.primary }}
+                  >
                     BARBER & BEAUTY
                   </p>
                 </div>
@@ -167,8 +182,14 @@ const Header: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.1 }}
-                  className={`text-base font-medium transition-all duration-300 relative group ${getNavTextColor(item.path)}`}
-                  style={isActive(item.path) ? { color: goldColors.primary } : undefined}
+                  className={`text-base font-medium transition-all duration-300 relative group ${getNavTextColor(
+                    item.path
+                  )}`}
+                  style={
+                    isActive(item.path)
+                      ? { color: goldColors.primary }
+                      : undefined
+                  }
                 >
                   {item.name}
                   {/* Animated underline */}
@@ -176,7 +197,7 @@ const Header: React.FC = () => {
                     className="absolute -bottom-1 left-0 h-0.5"
                     style={{ backgroundColor: goldColors.primary }}
                     initial={{ width: 0 }}
-                    animate={{ width: isActive(item.path) ? '100%' : '0%' }}
+                    animate={{ width: isActive(item.path) ? "100%" : "0%" }}
                     transition={{ duration: 0.3 }}
                   />
                   {/* Hover underline for non-active items */}
@@ -194,7 +215,11 @@ const Header: React.FC = () => {
                       style={{ backgroundColor: goldColors.primary }}
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
                     />
                   )}
                 </motion.button>
@@ -209,15 +234,19 @@ const Header: React.FC = () => {
                 whileTap={{ scale: 0.9 }}
                 className={`p-2.5 rounded-full transition-all duration-300 shadow-lg ${
                   isDark
-                    ? 'bg-zinc-800 hover:bg-zinc-700'
+                    ? "bg-zinc-800 hover:bg-zinc-700"
                     : scrolled
-                    ? 'bg-gray-100 hover:bg-gray-200'
-                    : 'bg-white/20 hover:bg-white/30'
+                    ? "bg-gray-100 hover:bg-gray-200"
+                    : "bg-white/20 hover:bg-white/30"
                 }`}
                 style={{ color: goldColors.primary }}
                 type="button"
               >
-                {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {isDark ? (
+                  <Sun className="w-4 h-4 md:w-5 md:h-5" />
+                ) : (
+                  <Moon className="w-4 h-4 md:w-5 md:h-5" />
+                )}
               </motion.button>
 
               {/* Mobile Menu Button */}
@@ -230,15 +259,17 @@ const Header: React.FC = () => {
               >
                 <motion.span
                   animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                  className={`w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
+                  className={`w-5 md:w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
                 />
                 <motion.span
                   animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                  className={`w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
+                  className={`w-5 md:w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
                 />
                 <motion.span
-                  animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                  className={`w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
+                  animate={
+                    isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }
+                  }
+                  className={`w-5 md:w-6 h-0.5 transition-all duration-300 ${getHamburgerColor()}`}
                 />
               </motion.button>
             </div>
@@ -261,11 +292,13 @@ const Header: React.FC = () => {
 
             {/* Menu */}
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className={`fixed top-0 right-0 bottom-0 w-80 z-50 lg:hidden ${isDark ? 'bg-zinc-900' : 'bg-white'} shadow-2xl`}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className={`fixed top-0 right-0 bottom-0 w-80 z-50 lg:hidden ${
+                isDark ? "bg-zinc-900" : "bg-white"
+              } shadow-2xl`}
             >
               <div className="flex flex-col h-full p-8">
                 {/* Close Button */}
@@ -290,15 +323,18 @@ const Header: React.FC = () => {
                       transition={{ delay: index * 0.1 }}
                       whileTap={{ scale: 0.95 }}
                       className={`text-2xl font-bold transition-all duration-300 relative pl-6 text-left ${
-                        !isActive(item.path) && (isDark ? 'text-white hover:opacity-75' : 'text-black hover:opacity-75')
+                        !isActive(item.path) &&
+                        (isDark
+                          ? "text-white hover:opacity-75"
+                          : "text-black hover:opacity-75")
                       }`}
                       style={
                         isActive(item.path)
                           ? {
                               color: goldColors.primary,
-                              fontFamily: 'Playfair Display, serif',
+                              fontFamily: "Playfair Display, serif",
                             }
-                          : { fontFamily: 'Playfair Display, serif' }
+                          : { fontFamily: "Playfair Display, serif" }
                       }
                       type="button"
                     >
@@ -310,7 +346,11 @@ const Header: React.FC = () => {
                           style={{ backgroundColor: goldColors.primary }}
                           initial={{ scaleY: 0 }}
                           animate={{ scaleY: 1 }}
-                          transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 500,
+                            damping: 30,
+                          }}
                         />
                       )}
                       {item.name}
@@ -319,8 +359,17 @@ const Header: React.FC = () => {
                 </div>
 
                 {/* Social Links */}
-                <div className="mt-auto pt-8 border-t" style={{ borderColor: `${goldColors.primary}33` }}>
-                  <p className={`text-sm mb-4 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>Follow Us</p>
+                <div
+                  className="mt-auto pt-8 border-t"
+                  style={{ borderColor: `${goldColors.primary}33` }}
+                >
+                  <p
+                    className={`text-sm mb-4 ${
+                      isDark ? "text-gray-400" : "text-gray-600"
+                    }`}
+                  >
+                    Follow Us
+                  </p>
                   <div className="flex gap-4">
                     <motion.button
                       whileHover={{ scale: 1.2, rotate: 5 }}
