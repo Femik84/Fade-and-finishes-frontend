@@ -255,7 +255,7 @@ const BookingPage: React.FC = () => {
   };
 
   const getSelectedBarberDisplay = () => {
-    if (!formData.barber) return 'Select a barber';
+    if (!formData.barber) return 'Select a Specialist';
     const barber = barbers.find(b => b.id === formData.barber);
     return barber ? barber.name : 'Select a barber';
   };
@@ -472,7 +472,7 @@ const BookingPage: React.FC = () => {
 
               {/* Custom Barber Dropdown */}
               <div className="mb-6" ref={barberDropdownRef}>
-                <label className="block text-[#D4AF37] mb-2 font-semibold">Choose Your Barber</label>
+                <label className="block text-[#D4AF37] mb-2 font-semibold">Choose Your Specialist</label>
                 <div className="relative">
                   <button
                     type="button"
