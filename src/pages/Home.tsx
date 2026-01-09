@@ -86,11 +86,11 @@ const HeroSection: React.FC<{ onNavigate: NavHandler }> = ({ onNavigate }) => {
 
       <div className="absolute inset-0 bg-black/70" />
 
-      <div className="relative h-full flex flex-col items-center justify-center text-center px-4 z-10">
+      <div className="relative h-full bottom-7 md:bottom-0 flex flex-col items-center justify-center text-center px-4 z-10">
         <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5 }}>
           <h1
             ref={titleRef}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6"
+            className="text-6xl md:text-8xl lg:text-9xl font-bold mb-4"
             style={{
               fontFamily: 'Playfair Display, serif',
               color: goldColors.primary,
@@ -101,7 +101,7 @@ const HeroSection: React.FC<{ onNavigate: NavHandler }> = ({ onNavigate }) => {
           </h1>
         </motion.div>
 
-        <motion.p className="text-xl md:text-3xl text-white mb-12 tracking-wide" style={{ fontFamily: 'Cormorant Garamond, serif' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
+        <motion.p className="text-xl md:text-3xl text-white mb-8 tracking-wide" style={{ fontFamily: 'Cormorant Garamond, serif' }} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 1 }}>
           {subtitle}
         </motion.p>
 
@@ -141,7 +141,7 @@ const HeroSection: React.FC<{ onNavigate: NavHandler }> = ({ onNavigate }) => {
         </motion.div>
       </div>
 
-      <motion.div className="absolute bottom-10 left-1/2 -translate-x-1/2" animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
+      <motion.div className="absolute bottom-17 md:bottom-10 left-1/2 -translate-x-1/2" animate={{ y: [0, 10, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
         <div className="w-6 h-10 border-2 rounded-full flex justify-center" style={{ borderColor: goldColors.primary }}>
           <div className="w-1 h-2 rounded-full mt-2" style={{ backgroundColor: goldColors.primary }} />
         </div>
