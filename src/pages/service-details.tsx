@@ -405,7 +405,7 @@ const ServiceDetails = () => {
           </motion.div>
         </motion.div>
 
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="absolute bottom-20 md:bottom-10 left-1/2 transform -translate-x-1/2 z-10">
           <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-6 h-10 border-2 border-[#d4af37] rounded-full flex justify-center pt-2">
             <div className="w-1 h-3 bg-[#d4af37] rounded-full" />
           </motion.div>
