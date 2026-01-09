@@ -112,7 +112,7 @@ const About: React.FC = () => {
   const aboutInView = useInView(aboutUsRef, { once: true, margin: '-100px' });
 
   useEffect(() => {
-    // Hero parallax animation (same behavior as Services)
+    // Hero parallax animation - REDUCED movement to prevent overflow
     if (heroRef.current) {
       gsap.to(heroRef.current, {
         scrollTrigger: {
@@ -121,7 +121,7 @@ const About: React.FC = () => {
           end: 'bottom top',
           scrub: true,
         },
-        y: 120,
+        y: 60, // Reduced from 120 to prevent overflow
         opacity: 0.85,
       });
     }
@@ -198,14 +198,28 @@ const About: React.FC = () => {
   };
 
   return (
-    <div className={`${isDark ? 'bg-black' : 'bg-neutral-50'} transition-colors duration-500 min-h-screen`}>
+    <div className={`${isDark ? 'bg-black' : 'bg-neutral-50'} transition-colors duration-500 min-h-screen overflow-x-hidden`}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600;700&display=swap');
+        
+        body {
+          overflow-x: hidden;
+          width: 100%;
+          position: relative;
+        }
+
+        html {
+          overflow-x: hidden;
+        }
+        
+        * {
+          max-width: 100%;
+        }
       `}</style>
 
       {/* Hero Section */}
-      <div className="relative h-[71vh] lg:h-[70vh] overflow-hidden">
-        <div ref={heroRef} className="absolute inset-0">
+      <div className="relative h-[71vh] lg:h-[70vh] overflow-hidden w-full">
+        <div ref={heroRef} className="absolute inset-0 w-full h-full">
           <img
             src={isDark ? heroDark : heroLight}
             alt="Luxury Barbershop Hero"
