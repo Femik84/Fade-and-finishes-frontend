@@ -601,16 +601,23 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className={`${isDark ? 'dark bg-black' : 'bg-white'} transition-colors duration-500`}>
+    <div className={`${isDark ? 'dark bg-black' : 'bg-white'} transition-colors duration-500 overflow-x-hidden`}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600;700&display=swap');
         
         body {
           overflow-x: hidden;
+          width: 100%;
+          position: relative;
         }
 
         html {
           scroll-behavior: smooth;
+          overflow-x: hidden;
+        }
+        
+        * {
+          max-width: 100%;
         }
       `}</style>
 
